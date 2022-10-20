@@ -1,0 +1,32 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" WindowStartupLocation="CenterScreen" Height="550" Width="450" MinHeight="520" MinWidth="420" MaxHeight="550" MaxWidth="450"  AllowsTransparency="True" Background="Transparent" WindowStyle="None" MouseLeftButtonDown="OnMouseLeftButtonDown">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10*" />
+            <ColumnDefinition Width="1.2*" />
+        </Grid.ColumnDefinitions>
+        <Button Name="Exit" Click="BTN_Click" Grid.Column="1" Height="50" Width="50" VerticalAlignment="Top" Margin="0,0,1,0" Background="{x:Null}" Foreground="#FF00BEFF" FontSize="36" FontFamily="Showcard Gothic" BorderBrush="{x:Null}" >X</Button>
+        <ListBox Grid.Row="0" Name="Nihad" Background="#19FFFFFF" BorderBrush="#CCFFFFFF"></ListBox>
+        <Grid Grid.Row="1">
+            <Button Click="BTN_Click" Name="ADD" Width="180" Height="80" HorizontalAlignment="Left" VerticalAlignment="top" Background="#FF00BEFF" FontSize="30" Foreground="White" >ADD</Button>
+            <Button Name="Remove" Width="180" Height="80" HorizontalAlignment="Left" VerticalAlignment="Bottom" Background="#FF00BEFF" FontSize="30"  Foreground="White">REMOVE</Button>
+            <Button Name="EDIT" Width="180" Height="80" HorizontalAlignment="Right" VerticalAlignment="top" Background="#FF00BEFF" FontSize="30"  Foreground="White" BorderBrush="{x:Null}" Click="BTN_Click" >EDIT</Button>
+            <Button Width="180" Height="80" HorizontalAlignment="Right" VerticalAlignment="Bottom" Background="#FF00BEFF" FontSize="30"  Foreground="White">CLEAR</Button>
+            <Button Width="120" Height="70" Name="Ref" >
+                <Button.Background>
+                    <ImageBrush ImageSource="/pex6jt.png"/>
+                </Button.Background>
+            </Button>
+        </Grid>
+    </Grid>
+</Window>
