@@ -19,13 +19,23 @@ namespace WpfApp1
     public partial class MainWindow : Window
     {
         public static UserControl1 Prct { get; set; }
+        private DataBase db { get; set; } = new DataBase();
         public MainWindow()
         {
             InitializeComponent();
+            Loading_All();
         }
         private void OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             DragMove();
+        }
+        private void Loading_All()
+        {
+            
+            foreach (var item in db.GetAll())
+            {
+                Nihad.Items.Add(new UserControl1(item));
+            }
         }
         private void SHow_Product()
         {
@@ -58,7 +68,7 @@ namespace WpfApp1
                         SHow_Product();
                             break;
                     case "Remove":
-                        DataBase.Remove_Product();
+                        //DataBase.Remove_Product();
                         break;
                     case "Ref":
                         if (Nihad.Items.Count!=0)
