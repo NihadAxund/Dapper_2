@@ -17,6 +17,7 @@ namespace WpfApp1
     public partial class Product : Window
     {
         public bool Isok = false;
+        private bool Isokay = false;
      //  private DB.Product pr;
         public Product()
         {
@@ -26,12 +27,14 @@ namespace WpfApp1
         {
             InitializeComponent();
             Isok = false;
+            Isokay = true;
             Product_txt.Text = Pro.Name;
             Country_txt.Text = Pro.Country;
             Cost_txt.Text = Pro.Coust.ToString();
         }
         private bool Check()
         {
+
             try
             {
                 double num = Convert.ToDouble(Cost_txt.Text);
@@ -44,8 +47,8 @@ namespace WpfApp1
             Isok = true;
             if (Check())
             {
-             //   pr =new DB.Product(Product_txt.Text, Country_txt.Text, Convert.ToDouble(Cost_txt.Text));
-                MainWindow.Prct = new UserControl1(new DB.Product(Product_txt.Text, Country_txt.Text, Convert.ToDouble(Cost_txt.Text)));
+                DB.Product Pro = new DB.Product(Product_txt.Text, Country_txt.Text, Convert.ToDouble(Cost_txt.Text));
+                MainWindow.Prct = new UserControl1(Pro);
                 Close();
             }
         }

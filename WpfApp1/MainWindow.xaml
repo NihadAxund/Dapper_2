@@ -19,10 +19,10 @@
         <ListBox Grid.Row="0" Name="Nihad" Background="#19FFFFFF" BorderBrush="#CCFFFFFF"></ListBox>
         <Grid Grid.Row="1">
             <Button Click="BTN_Click" Name="ADD" Width="180" Height="80" HorizontalAlignment="Left" VerticalAlignment="top" Background="#FF00BEFF" FontSize="30" Foreground="White" >ADD</Button>
-            <Button Name="Remove" Width="180" Height="80" HorizontalAlignment="Left" VerticalAlignment="Bottom" Background="#FF00BEFF" FontSize="30"  Foreground="White">REMOVE</Button>
+            <Button Name="Remove_btn" Width="180" Height="80" HorizontalAlignment="Left" VerticalAlignment="Bottom" Background="#FF00BEFF" FontSize="30"  Click="BTN_Click"  Foreground="White">REMOVE</Button>
             <Button Name="EDIT" Width="180" Height="80" HorizontalAlignment="Right" VerticalAlignment="top" Background="#FF00BEFF" FontSize="30"  Foreground="White" BorderBrush="{x:Null}" Click="BTN_Click" >EDIT</Button>
-            <Button Width="180" Height="80" HorizontalAlignment="Right" VerticalAlignment="Bottom" Background="#FF00BEFF" FontSize="30"  Foreground="White">CLEAR</Button>
-            <Button Width="120" Height="70" Name="Ref" >
+            <Button x:Name="Clear_btn" Click="BTN_Click" Width="180" Height="80" HorizontalAlignment="Right" VerticalAlignment="Bottom" Background="#FF00BEFF" FontSize="30"  Foreground="White">CLEAR</Button>
+            <Button Width="120" Height="70" Name="Ref" Click="BTN_Click" >
                 <Button.Background>
                     <ImageBrush ImageSource="/pex6jt.png"/>
                 </Button.Background>

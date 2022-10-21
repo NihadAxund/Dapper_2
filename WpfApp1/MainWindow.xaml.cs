@@ -31,7 +31,7 @@ namespace WpfApp1
         }
         private void Loading_All()
         {
-            
+            Nihad.Items.Clear();
             foreach (var item in db.GetAll())
             {
                 Nihad.Items.Add(new UserControl1(item));
@@ -43,7 +43,9 @@ namespace WpfApp1
             pro.ShowDialog();
             if (pro.Isok)
             {
-                Nihad.Items.Add(Prct);
+                if (db.Add_Product(Prct.pro))
+                     Nihad.Items.Add(Prct);
+ 
             }
         }
         private void Edit_Product(UserControl1 uc1)
@@ -52,8 +54,17 @@ namespace WpfApp1
             pc.ShowDialog();
             if (pc.Isok)
             {
-
+                int num = Nihad.SelectedIndex;
+                Nihad.Items.Remove(Nihad.SelectedItem);
+                Nihad.Items.Insert(num,Prct);
+                db.Update(Prct.pro);
             }
+        }
+        private void Remove(UserControl1 uc)
+        {
+            db.Remove(uc.pro.Id);
+            Nihad.Items.Remove(Nihad.SelectedItem);
+
         }
         private void BTN_Click(object sender, RoutedEventArgs e)
         {
@@ -67,25 +78,26 @@ namespace WpfApp1
                     case "ADD":
                         SHow_Product();
                             break;
-                    case "Remove":
-                        //DataBase.Remove_Product();
+                    case "Remove_btn":
+                        if (Nihad.SelectedItems.Count != 0)
+                        {
+                            if (Nihad.SelectedItem is UserControl1 U)Remove(U);
+                        }
                         break;
                     case "Ref":
-                        if (Nihad.Items.Count!=0)
-                            Nihad.Items.Clear();
+                        Loading_All();
                         break;
-                    case "EDIT" :
+                    case "EDIT":
                         if (Nihad.SelectedItems.Count!=0)
                         {
                             if (Nihad.SelectedItem is UserControl1 U)
-                            {
                                 Edit_Product(U);
-
-                            }
-                           
                         }
-                        MessageBox.Show("a");
                         break;
+                    case "Clear_btn":
+                        Nihad.Items.Clear();
+                        break;
+               
                     default:
                         break;
                 }
